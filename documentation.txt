@@ -1,0 +1,22 @@
+synchronous vs asynchronous:
+
+synchronous theory in javascript: 
+javascript's default behavour is synchronous javascript.javascript can run one statement at a time.
+
+For example:
+console.log("Line one");
+console.log("Line two");
+console.log("Line three");
+Here,When run the code, "Line two" can not start before "Line one" is finished."Line three" can not start 
+before "Line two" is finished.
+we might heared javascript is single threaded language.
+
+asynchronous theory in javascript:
+Asynchronous controls How do we perform tasks which take time to complete for example getting data from 
+database.
+In asynchronous javascript,start something now and finish it later.
+
+callback function
+a function passed to another function as an argument is referred to as a callback function. The callback 
+function runs after the completion of the outer function. It is useful to develop an asynchronous JavaScript 
+code. 
