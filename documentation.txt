@@ -16,12 +16,12 @@ Asynchronous controls How do we perform tasks which take time to complete for ex
 database.
 In asynchronous javascript,start something now and finish it later.
 
-callback function
+callback function:
 a function passed to another function as an argument is referred to as a callback function. The callback 
 function runs after the completion of the outer function. It is useful to develop an asynchronous JavaScript 
 code. 
 
-JavaScript Promise
+JavaScript Promise :
 In real-life, Promises express a trust between two or more persons and ensure that a particular thing will 
 surely 
 happen. In javascript,Promise is a good way to handle asynchronous operations. It is used to find out if the 
@@ -111,3 +111,46 @@ resolve(value)	         Returns a new Promise object that is resolved with the g
 catch()	                 Appends the rejection handler callback
 then()	                 Appends the resolved handler callback
 finally()	             Appends a handler to the promise
+
+Javscript async/await:
+
+We use the async keyword with a function to represent that the function is an asynchronous function. The 
+async function returns a promise.
+
+The syntax of async function is:
+
+async function name(parameter1, parameter2, ...paramaterN) {
+    // statements
+}
+Here,
+
+name - name of the function
+parameters - parameters that are passed to the function
+
+The await keyword is used inside the async function to wait for the asynchronous operation.
+
+
+The syntax to use await is:
+
+let result = await promise;
+The use of await pauses the async function until the promise returns a result (resolve or reject) value. 
+For example,
+
+// a promise
+let promise = new Promise(function (resolve, reject) {
+    setTimeout(function () {
+    resolve('Promise resolved')}, 4000); 
+});
+
+// async function
+async function asyncFunc() {
+
+    // wait until the promise resolves 
+    let result = await promise; 
+
+    console.log(result);
+    console.log('hello');
+}
+
+// calling the async function
+asyncFunc();
