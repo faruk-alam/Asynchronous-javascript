@@ -12,9 +12,35 @@ before "Line two" is finished.
 we might heared javascript is single threaded language.
 
 asynchronous theory in javascript:
+
 Asynchronous controls How do we perform tasks which take time to complete for example getting data from 
 database.
 In asynchronous javascript,start something now and finish it later.
+
+The traditional method javascript has available for running code asynchronously -
+setTimeout() :
+The setTimeout() function executes a block of code once after a specific time has elapsed.
+syntax:
+setTimeout(function,duration)
+Example: Display a Text Once After 3 Second
+// program to display a text using setTimeout method
+
+function greet() {
+    console.log('Hello world');
+}
+
+setTimeout(greet, 3000);
+console.log('This message is shown first');
+
+Output:
+This message is shown first
+Hello world
+
+To remove a setTimeout method ,we can use cleartimeout() method by same function which used in setTimeout() 
+function as a paramater.
+
+setinterval()
+The setinterval() function executes a block of code over and over again in regular intervals.
 
 callback function:
 a function passed to another function as an argument is referred to as a callback function. The callback 
@@ -154,3 +180,35 @@ async function asyncFunc() {
 
 // calling the async function
 asyncFunc();
+
+API and HTTTP Request-
+
+What is an API and How Does it Work?
+An API stands for "Application Programming Interface"An Application Programming Interface (API) is a form 
+of communication between two software components. It's a way for two different programs, or software 
+components, to communicate with each other. APIs define the protocols and rules for how one component 
+should interact with the other. For example, a web application might use an API to fetch data from a 
+database, or to get the latest weather forecast from a weather service. APIs can be used in many 
+programming languages, but some common formats include REST and GraphQL.
+
+
+Reason Behind the HTTP Request :
+The interaction between the frontend and backend of websites is made possible through HTTP requests. 
+Functionalities like updating a new/old user in a database, publishing a blog post from your WordPress 
+dashboard, deleting a picture from your profile, and updating your bio all require an interaction between 
+a server and a client to modify data.
+When building web applications — both frontend and full stack web apps — we often interact with data 
+stored on different databases and servers. These servers may belong to third parties or may be created by 
+the developers of a project.
+To interact with these servers, we can make use of different HTTP methods to request for data. We can 
+create, read, update, and delete (or CRUD) data on servers using dedicated HTTP verbs like POST, GET, 
+PUT/PATCH, and DELETE.
+
+What Is a JavaScript HTTP Request?
+HTTP requests in JavaScript are a set of predefined methods used for interacting with data stored on 
+servers.Every request sent to a server includes an endpoint and the type of request being sent. You can 
+see an endpoint as a gateway between two programsː the client and the server.
+The client is the program that sends a request while the server is the one that receives the request. 
+The server sends back a response depending on the validity of the request. If the request is successful, 
+the server sends back data in either XML or JSON format (JSON in most cases), and if the request fails, 
+the server sends back an error message.
