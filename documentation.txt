@@ -212,3 +212,110 @@ The client is the program that sends a request while the server is the one that 
 The server sends back a response depending on the validity of the request. If the request is successful, 
 the server sends back data in either XML or JSON format (JSON in most cases), and if the request fails, 
 the server sends back an error message.
+Responses sent back by the server are usually associated with status codes. 
+These codes help us understand what the server is trying to say when it receives a request
+Here are some of them and what they mean:
+
+100–199 denotes an informational response.
+200–299 denotes a successful request.
+300–399 denotes redirection.
+400–499 denotes client error.
+500–599 denotes server error.
+
+HTTP Status Codes :
+HTTP status codes are like short notes from a server that get tacked onto a web page. They’re not actually 
+part of the site’s content. Instead, they’re messages from the server letting you know how things went 
+when it received the request to view a certain page.
+These kinds of messages are returned every time your browser interacts with a server, even if you don’t 
+see them. If you’re a website owner or developer, understanding HTTP status codes is critical. When they 
+do show up, HTTP status codes are an invaluable tool for diagnosing and fixing website configuration errors.
+
+What Are HTTP Status Codes?
+Every time you click on a link or type in a URL and press Enter, your browser sends a request to the 
+webserver for the site you’re trying to access. The server receives and processes the request, and then 
+sends back the relevant resources along with an HTTP header.
+HTTP status codes are delivered to your browser in the HTTP header. While status codes are returned every 
+single time your browser requests a web page or resource, most of the time you don’t see them.
+It’s usually only when something goes wrong that you might see one displayed in your browser. This is the 
+server’s way of saying: “Something isn’t right. Here’s a code that explains what went wrong.”
+How To Make an HTTP Request in JavaScript ?
+
+Understanding HTTP Status Code Classes
+HTTP status codes are divided into 5 “classes”. These are groupings of responses that have similar or 
+related meanings. Knowing what they are can help you quickly determine the general substance of a status 
+code before you go about looking up its specific meaning.
+
+The five classes include:
+
+100s: Informational codes indicating that the request initiated by the browser is continuing.
+200s: Success codes returned when browser request was received, understood, and processed by the server.
+300s: Redirection codes returned when a new resource has been substituted for the requested resource.
+400s: Client error codes indicating that there was a problem with the request.
+500s: Server error codes indicating that the request was accepted, but that an error on the server 
+prevented the fulfillment of the request.
+
+Why HTTP Status Codes and Errors Matter for Search Engine Optimization (SEO) :
+Search engine bots see HTTP status codes while they’re crawling your site. In some cases, these messages 
+can influence if and how your pages get indexed, as well as how search engines perceive the health of your 
+site.
+Generally speaking, 100- and 200-level HTTP status codes won’t have much impact on your SEO. They signal 
+that everything is working as it should on your site, and enable search engine bots to continue on their 
+way. However, they aren’t going to boost your rankings either.
+For the most part, it’s the higher-level codes that matter for SEO. 400- and 500-level responses can 
+prevent bots from crawling and indexing your pages. Too many of these errors can also indicate that your 
+site isn’t of high quality, possibly lowering your rankings.
+300-level codes have a bit more complicated relationship with SEO. The main thing you need to know to 
+understand their impact is the difference between permanent and temporary redirects, which we’ll cover in 
+more detail in the relevant section below.
+In a nutshell, however, permanent redirects share link equity from backlinks, but temporary ones do not. 
+In other words, when you use temporary redirects for pages that have moved, you lose the SEO advantage of 
+all the link building you’ve done.
+
+
+How To Make an HTTP Request in JavaScript ?
+There are different methods you can use to make HTTP requests in JavaScript.
+Each method provide the way how to send POST, GET, PUT/PATCH, and DELETE requests to 
+servers.
+JSON Placeholder will serve as the remote server/endpoint where all our requests will be sent.
+
+JSONPlaceholder:
+JSONPlaceholder is an Open Source Online Mock REST API Service, designed for developers who need fake JSON 
+data, offering simple and easy-to-understand access.
+
+How Working with API Endpoints and HTTP Methods in JSONPlaceholder ?
+JSONPlaceholder uses HTTP methods like POST, GET, PUT, PATCH, HEAD, and DELETE for interaction examples 
+between clients and servers. While all these methods work, produce results, and are functional, the data 
+is not permanently stored in JSONPlaceholder. Currently, JSONPlaceholder JSONPlaceholder offers a blog 
+example for developers to experiment with.
+
+Post:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/posts
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/posts/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org/posts/1
+
+Users:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/users
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/users/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org//users?id=1)
+
+Comments:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/comments
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/comments/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org/comments?id=1
+
+
+HTTP Request in JavaScript Using XMLHttpRequest (AJAX) :
+XMLHttpRequest is a built-in JavaScript object used for interacting with servers and loading content in web 
+pages without reloading the browser.
+
+How To Send a GET Request in JavaScript Using XMLHttpRequest
+You make use of the GET request when you want to retrieve data from a server. To send a successful GET 
+request using XMLHttpRequest in JavaScript, you should ensure that the following are done correctly:
+
+Create a new XMLHttpRequest object.
+Open a connection by specifying the request type and endpoint (the URL of the server).
+Send the request.
+Listen for the server’s response.
