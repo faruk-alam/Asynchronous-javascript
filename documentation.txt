@@ -47,6 +47,24 @@ a function passed to another function as an argument is referred to as a callbac
 function runs after the completion of the outer function. It is useful to develop an asynchronous JavaScript 
 code. 
 
+Callback hell - 
+Callback hell is a situation in javascript where callback functions are nested one within others.
+In this situation,It is very diffcult to read the codes.
+Es :
+// callback hell
+taskOne(function f1() {
+    taskTwo(function f2() {
+        taskThree(function f3() {
+            taskFour(function f4(){
+                taskFive();
+            })
+        });
+    });
+});
+
+This is old pattern to handle asynchronous javascript.We can avoid callback hell by using promise,async-await.
+
+
 JavaScript Promise :
 In real-life, Promises express a trust between two or more persons and ensure that a particular thing will 
 surely 
@@ -230,7 +248,124 @@ These kinds of messages are returned every time your browser interacts with a se
 see them. If you’re a website owner or developer, understanding HTTP status codes is critical. When they 
 do show up, HTTP status codes are an invaluable tool for diagnosing and fixing website configuration errors.
 
-What Are HTTP Status Codes?
+ redirects for pages that have moved, you lose the SEO advantage of 
+all the link building you’ve done.
+
+
+How To Make an HTTP Request in JavaScript ?
+There are different methods you can use to make HTTP requests in JavaScript.
+Each method provide the way how to send POST, GET, PUT/PATCH, and DELETE requests to 
+servers.
+JSON Placeholder will serve as the remote server/endpoint where all our requests will be sent.
+
+JSONPlaceholder:
+JSONPlaceholder is an Open Source Online Mock REST API Service, designed for developers who need fake JSON 
+data, offering simple and easy-to-understand access.
+
+How Working with API Endpoints and HTTP Methods in JSONPlaceholder ?
+JSONPlaceholder uses HTTP methods like POST, GET, PUT, PATCH, HEAD, and DELETE for interaction examples 
+between clients and servers. While all these methods work, produce results, and are functional, the data 
+is not permanently stored in JSONPlaceholder. Currently, JSONPlaceholder JSONPlaceholder offers a blog 
+example for developers to experiment with.
+
+Post:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/posts
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/posts/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org/posts/1
+
+Users:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/users
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/users/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org//users?id=1
+
+Comments:
+HTTP Methods	                                API Endpoints
+GET(ALL)/POST	                                https://jsonplaceholder.org/comments
+GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/comments/1
+GET(SEARCH BY ID)	                            https://jsonplaceholder.org/comments?id=1
+
+
+HTTP Request in JavaScript Using XMLHttpRequest (AJAX) :
+XMLHttpRequest is a built-in JavaScript object used for interacting with servers and loading content in web 
+pages without reloading the browser.
+
+Data can be sent using the HTTP POST method and received using the HTTP GET method. Let’s take a look and 
+make a GET request. We’ll be using JSONPlaceholder, a free online REST API for developers that returns 
+random data in JSON format. (in this case, “https://jsonplaceholder.typicode.com/users“)ː
+
+
+To make an HTTP call in Ajax, you need to initialize a new XMLHttpRequest() method, specify the URL 
+endpoint and HTTP method (in this case GET). Finally, we use the open() method to tie the HTTP method and 
+URL endpoint together and call the send() method to fire off the request.
+
+We log the HTTP response to the console by using the XMLHTTPRequest.onreadystatechange property which 
+contains the event handler to be called when the readystatechanged event is fired.
+
+How To Send a GET Request in JavaScript Using XMLHttpRequest
+You make use of the GET request when you want to retrieve data from a server. To send a successful GET request using XMLHttpRequest in JavaScript, you should ensure that the following are done correctly:
+
+Create a new XMLHttpRequest object.
+Open a connection by specifying the request type and endpoint (the URL of the server).
+Send the request.
+Listen for the server’s response.
+How To Send a GET Request in JavaScript Using XMLHttpRequest
+You make use of the GET request when you want to retrieve data from a server. To send a successful GET request using XMLHttpRequest in JavaScript, you should ensure that the following are done correctly:
+
+we write onload() function before send() function. onload() function process the response what we receive 
+and send() function sends a request to server. 
+The XMLHttpRequest response property returns the response's body content as an ArrayBuffer, a Blob, a 
+Document, a JavaScript Object, or a string, depending on the value of the request's responseType property.
+
+Value
+An appropriate object based on the value of responseType. You may attempt to request the data be provided in 
+a specific format by setting the value of responseType after calling open() to initialize the request but 
+before calling send() to send the request to the server.
+
+The value is null if the request is not yet complete or was unsuccessful, with the exception that when 
+reading text data using a responseType of "text" or the empty string (""), the response can contain the 
+response so far while the request is still in the LOADING readyState (3).
+
+XMLHttpRequest: error event - 
+The error event is fired when the request encountered an error.
+
+Syntax
+Use the event name in methods like addEventListener(), or set an event handler property.
+
+addEventListener("error", (event) => {});
+
+onerror = (event) => {};
+
+XMLHttpRequest: readyState property -
+The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client 
+exists in one of the following states:
+
+Value	      State	                             Description
+0	          UNSENT	         Client has been created. open() not called yet.
+1	          OPENED	         open() has been called.
+2	      HEADERS_RECEIVED	     send() has been called, and headers and status are available.
+3	         LOADING	         Downloading; responseText holds partial data.
+4	          DONE	             The operation is complete.
+UNSENT
+The XMLHttpRequest client has been created, but the open() method hasn't been called yet.
+
+OPENED
+open() method has been invoked. During this state, the request headers can be set using the setRequestHeader()
+method and the send() method can be called which will initiate the fetch.
+
+HEADERS_RECEIVED
+send() has been called, all redirects (if any) have been followed and the response headers have been received.
+
+LOADING
+Response's body is being received. If responseType is "text" or empty string, responseText will have the 
+partial text response as it loads.
+
+DONE
+The fetch operation is complete. This could mean that either the data transfer has been completed 
+successfully or failed.
+
+HTTP Status Codes?
 Every time you click on a link or type in a URL and press Enter, your browser sends a request to the 
 webserver for the site you’re trying to access. The server receives and processes the request, and then 
 sends back the relevant resources along with an HTTP header.
@@ -268,54 +403,85 @@ site isn’t of high quality, possibly lowering your rankings.
 understand their impact is the difference between permanent and temporary redirects, which we’ll cover in 
 more detail in the relevant section below.
 In a nutshell, however, permanent redirects share link equity from backlinks, but temporary ones do not. 
-In other words, when you use temporary redirects for pages that have moved, you lose the SEO advantage of 
-all the link building you’ve done.
+In other words, when you use temporary
+
+How To Send a POST Request in JavaScript Using XMLHttpRequest - 
+With the POST request, you can send new information (data) to the server/database as an object. The object 
+could be information about a new user, a new to-do list entry, or whatever else you need to log.
+Note that the body variable which holds the object must be converted to a JSON object before it’s sent to 
+the server. The conversion is done using the JSON.stringify() method
+
+XMLHttpRequest: setRequestHeader() method - 
+
+The XMLHttpRequest method setRequestHeader() sets the value of an HTTP request header. When using 
+setRequestHeader(), you must call it after calling open(), but before calling send(). If this method is 
+called several times with the same header, the values are merged into one single request header.
+
+Each time you call setRequestHeader() after the first time you call it, the specified text is appended to 
+the end of the existing header's content.
+
+If no Accept header has been set using this, an Accept header with the type "*/*" is sent with the request 
+when send() is called.
+
+For security reasons, there are several forbidden header names whose values are controlled by the user agent. 
+Any attempt to set a value for one of those headers from frontend JavaScript code will be ignored without 
+warning or error.
+
+In addition, the Authorization HTTP header may be added to a request, but will be removed if the request is 
+redirected cross-origin.
+
+Note: For your custom fields, you may encounter a "not allowed by Access-Control-Allow-Headers in preflight 
+response" exception when you send requests across domains. In this situation, you need to set up the 
+Access-Control-Allow-Headers in your response header at server side.
+
+Syntax - 
+(header, value)
+
+Parameters - 
+header : The name of the header whose value is to be set.
+
+value : The value to set as the body of the header.
+
+Return value
+None (undefined).
+
+How To Send a PUT/PATCH Request in JavaScript Using XMLHttpRequest - 
+The PUT request is used to update properties of an object. On the other hand,The PATCH request is used to 
+update specified properties of an object. This is different from the PUT method,
+which updates the entirety of an object.
+
+How To Send a DELETE Request in JavaScript Using XMLHttpRequest
+Just like the name implies, the DELETE method is used to delete data from a server. This is the same for any 
+JavaScript HTTP method.
+
+In most cases, you’ll have to specify the ID of the data you want to delete. The ID is usually a parameter 
+in the endpoint/URL.
 
 
-How To Make an HTTP Request in JavaScript ?
-There are different methods you can use to make HTTP requests in JavaScript.
-Each method provide the way how to send POST, GET, PUT/PATCH, and DELETE requests to 
-servers.
-JSON Placeholder will serve as the remote server/endpoint where all our requests will be sent.
+The Fetch API - 
+he fetch API is one of the most popular ways of interacting with servers using JavaScript. It is a native 
+JavaScript API which has support for promises while making requests.
 
-JSONPlaceholder:
-JSONPlaceholder is an Open Source Online Mock REST API Service, designed for developers who need fake JSON 
-data, offering simple and easy-to-understand access.
+The Axios () api method - 
+Axios is a very popular JavaScript library you can use to perform HTTP requests. It works in both Browser 
+and Node.js platforms.
 
-How Working with API Endpoints and HTTP Methods in JSONPlaceholder ?
-JSONPlaceholder uses HTTP methods like POST, GET, PUT, PATCH, HEAD, and DELETE for interaction examples 
-between clients and servers. While all these methods work, produce results, and are functional, the data 
-is not permanently stored in JSONPlaceholder. Currently, JSONPlaceholder JSONPlaceholder offers a blog 
-example for developers to experiment with.
+Is supports all modern browsers, including IE8 and higher.
 
-Post:
-HTTP Methods	                                API Endpoints
-GET(ALL)/POST	                                https://jsonplaceholder.org/posts
-GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/posts/1
-GET(SEARCH BY ID)	                            https://jsonplaceholder.org/posts/1
+It is promise-based, and this lets us write async/await code to perform XHR requests very easily.
 
-Users:
-HTTP Methods	                                API Endpoints
-GET(ALL)/POST	                                https://jsonplaceholder.org/users
-GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/users/1
-GET(SEARCH BY ID)	                            https://jsonplaceholder.org//users?id=1)
+Using Axios has quite a few advantages over the native Fetch API:
 
-Comments:
-HTTP Methods	                                API Endpoints
-GET(ALL)/POST	                                https://jsonplaceholder.org/comments
-GET(BY ID)/PUT/PATCH/DELETE	                    https://jsonplaceholder.org/comments/1
-GET(SEARCH BY ID)	                            https://jsonplaceholder.org/comments?id=1
+supports older browsers (Fetch needs a polyfill)
+has a way to abort a request
+has a way to set a response timeout
+has built-in CSRF protection
+supports upload progress
+performs automatic JSON data transformation
+works in Node.js
 
-
-HTTP Request in JavaScript Using XMLHttpRequest (AJAX) :
-XMLHttpRequest is a built-in JavaScript object used for interacting with servers and loading content in web 
-pages without reloading the browser.
-
-How To Send a GET Request in JavaScript Using XMLHttpRequest
-You make use of the GET request when you want to retrieve data from a server. To send a successful GET 
-request using XMLHttpRequest in JavaScript, you should ensure that the following are done correctly:
-
-Create a new XMLHttpRequest object.
-Open a connection by specifying the request type and endpoint (the URL of the server).
-Send the request.
-Listen for the server’s response.
+Note that : Axios is not built into JavaScript — you’ll have to install it separately to make use of its 
+functionality 
+We can use npm or axios cdn.
+axios cdn - 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
