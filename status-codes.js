@@ -7,5 +7,5 @@ httpReqst.addEventListener("readystatechange", () => {
         console.log("could not fetch the data")
     }
 })
-httpReqst.open("GET","https://jsonplaceholder.typicode.com/postss");
-httpReqst.send();
+ httpReqst.open("GET","https://jsonplaceholder.typicode.com/postss");
+ httpReqst.send();

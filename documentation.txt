@@ -485,3 +485,75 @@ functionality
 We can use npm or axios cdn.
 axios cdn - 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+Local Storage,Session Storage and Cookie in JavaScript :
+There are certain scenarios when a front-end developer will need to store some data in the browser. 
+JavaScript provides two methods for storing data on the client side: local storage and session storage. 
+These methods allow us to persist data even after the user closes the browser or the session ends.
+
+Both storage objects provide the same methods and properties:
+
+setItem(key, value) – store key/value pair.
+getItem(key) – get the value by key.
+removeItem(key) – remove the key with its value.
+clear() – delete everything.
+key(index) – get the key on a given position.
+length – the number of stored items.
+
+Local storage: -
+Local storage allows you to store data on the client side in a key-value format that will persist even 
+after the user closes the browser. The data stored in local storage has no expiration time, meaning it will 
+remain stored until it is manually deleted.
+
+To store data in local storage, use the localStorage object and its setItem() method
+To retrieve the stored data, use the getItem() method
+To delete the stored data, use the removeItem() method
+
+Look at this example to understand better.
+
+// Store data in local storage
+localStorage.setItem("reading-mode", "Dark");
+
+// Retrieve data from local storage
+const mode = localStorage.getItem("reading-mode");
+console.log(mode); // Output: "Dark"
+
+// Remove data from local storage
+localStorage.removeItem("reading-mode");
+
+Session Storage:-
+Session storage, like local storage, allows you to store data on the client side, but with a few key 
+differences. The data stored in session storage is only available for the current session and will be 
+deleted when the user closes the browser or the session ends. The data will go when we close the current tab.
+
+Similarly, to store data in session storage, use the sessionStorageobject and its setItem() method
+To retrieve the stored data, use the getItem() method
+To delete the stored data, use the removeItem() method
+
+Here’s a simple example of how to use session storage:
+
+// Store data in session storage
+sessionStorage.setItem("jwt", "jhvafjsavjv234be2h");
+// Retrieve data from session storage
+const username = sessionStorage.getItem("jwt");
+console.log(username); // Output: "jhvafjsavjv234be2h"
+// Remove data from session storage
+sessionStorage.removeItem("jwt");
+
+Local storage and session storage provide a simple and effective way to store data on the client side in 
+JavaScript. Use local storage when you need to persist data even after the user closes the browser, and use 
+session storage when you need to store data for the current session only.
+
+Cookies:-
+Cookies are small text files that are stored on the user’s computer and can be used to store data such as 
+user preferences, login credentials, and shopping cart contents. Cookies have been around since the early 
+days of the web and are still widely used today. Cookies are the primary choice for reading server side 
+renders.
+
+
+localStorage          vs                   sessionStorage                  vs                       Cookies
+
+saved data permanently                 temporary until not closed the tab        few minutes (specific duration)
+Not supported by all browsers         Not supported by all browsers             Widely supported by all browsers
+Can store data up to 5 MB              Can store data up to 5 MB                Limited to 4 KB of data per cookie
+Faster access times than cookies       Faster access times than cookies         Can be slow to access due to their size
